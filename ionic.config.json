@@ -1,0 +1,7 @@
+{
+  "name": "feather",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

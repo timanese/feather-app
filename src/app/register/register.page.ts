@@ -38,7 +38,7 @@ export class RegisterPage implements OnInit {
 
           // redirect to home page
 
-          this.navCtrl.navigateRoot("home");
+          this.navCtrl.navigateRoot("tabs");
 
         });
       } catch(e) {

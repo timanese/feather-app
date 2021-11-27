@@ -2,6 +2,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Component, OnInit } from '@angular/core';
 import { LoadingController, NavController, ToastController } from '@ionic/angular';
 import { User } from '../models/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginPage implements OnInit {
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
     private afAuth: AngularFireAuth,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private router: Router
     ) {}
 
   ngOnInit() {
@@ -25,18 +27,14 @@ export class LoginPage implements OnInit {
     if (this.formValidation()) {
       // show loader
       let loader = this.loadingCtrl.create({
-        message: 'Please wait ...'
+        message: ' Please wait ...'
       });
       (await loader).present();
 
       try {
         await this.afAuth.signInWithEmailAndPassword(user.email, user.password).then(data => {
+          this.router.navigate(['/tabs']);
           console.log(data);
-
-
-          // redirect to home page
-
-          this.navCtrl.navigateRoot("tabs");
 
         });
       } catch(e) {

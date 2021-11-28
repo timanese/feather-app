@@ -1,10 +1,11 @@
 
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
-import { LoadingController, NavController, ToastController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { loadingController } from '@ionic/core';
 import { User } from '../models/user.model';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,7 @@ export class RegisterPage implements OnInit {
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
     private afAuth: AngularFireAuth,
-    private navCtrl: NavController
+    private router: Router
     ) {}
 
   ngOnInit() {
@@ -26,19 +27,18 @@ export class RegisterPage implements OnInit {
   async register(user: User) {
     if (this.formValidation()) {
       // show loader
-      let loader = this.loadingCtrl.create({
+      // or is it let
+      const loader = this.loadingCtrl.create({
         message: 'Please wait ...'
       });
       (await loader).present();
-
+      // See if the user has created a valid user account, then direct them to logn.
+      // If its unsuccessful show a toast of the error.
       try {
         await this.afAuth.createUserWithEmailAndPassword(user.email, user.password).then(data => {
+          this.router.navigate(['/tabs']);
           console.log(data);
 
-
-          // redirect to home page
-
-          // this.navCtrl.navigateRoot("tabs");
 
         });
       } catch(e) {

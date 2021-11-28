@@ -19,10 +19,10 @@
     <ion-input type="password" [(ngModel)]="user.password" required></ion-input>
   </ion-item>
 
-  <ion-button class="ion-padding" color="primary" expand="full" (click)="login(user)" >
+  <ion-button class="ion-padding" color="primary" expand="full" shape="round" (click)="login(user)" >
     Login
   </ion-button>
-  <ion-button class="ion-padding" color="light" expand="full" [routerLink]="['/register']">
+  <ion-button class="ion-padding" color="light" expand="full" shape="round" [routerLink]="['/register']">
     Sign Up
   </ion-button>
 </ion-content>

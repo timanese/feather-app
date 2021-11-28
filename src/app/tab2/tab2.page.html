@@ -13,20 +13,26 @@
     </ion-toolbar>
   </ion-header>
 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/add-post']">
+      <ion-icon name='add'></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
   <!-- <ion-fab vertical="bottom" horizontal="center" slot="fixed">
     <ion-fab-button (click)="addPhotoToGallery()">
       <ion-icon name="add-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab> -->
   <!-- <app-explore-container name="Diary Entry"></app-explore-container> -->
-<ion-card>
-  <ion-img src="../../assets/icon/favicon.png"></ion-img>
-  <ion-card-header>
-    <ion-card-subtitle>topic</ion-card-subtitle>
-    <ion-card-title>Title</ion-card-title>
-  </ion-card-header>
+  <ion-card *ngFor="let post of posts">
+    <ion-img src="../../assets/icon/favicon.png"></ion-img>
+    <ion-card-header>
+      <!-- <ion-card-subtitle>topic</ion-card-subtitle> -->
+      <ion-card-title>{{ post.title }}</ion-card-title>
+    </ion-card-header>
 
-  <ion-card-content>Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.</ion-card-content>
-</ion-card>
+    <ion-card-content>{{ post.details }}</ion-card-content>
+  </ion-card>
 
 </ion-content>

@@ -1,6 +1,6 @@
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Component, OnInit } from '@angular/core';
-import { LoadingController, NavController, ToastController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { User } from '../models/user.model';
 import { Router } from '@angular/router';
 
@@ -15,7 +15,6 @@ export class LoginPage implements OnInit {
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
     private afAuth: AngularFireAuth,
-    private navCtrl: NavController,
     private router: Router
     ) {}
 
@@ -26,6 +25,7 @@ export class LoginPage implements OnInit {
   {
     if (this.formValidation()) {
       // show loader
+      // eslint-disable-next-line prefer-const
       let loader = this.loadingCtrl.create({
         message: ' Please wait ...'
       });

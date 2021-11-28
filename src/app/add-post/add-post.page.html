@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Entry</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Title</ion-label>
+    <ion-input type='text'[(ngModel)]='post.title' required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Details</ion-label>
+    <ion-input type="text"[(ngModel)]="post.details" required></ion-input>
+  </ion-item>
+
+  <ion-button class="ion-padding" color="primary" shape="round" expand="full"  (click)="createPost(post)">
+    <ion-icon slot="start" name="create-outline"></ion-icon>
+    Create
+  </ion-button>
+
+</ion-content>

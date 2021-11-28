@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GrantAccessToTabsGuard } from '../grant-access-to-tabs.guard';
 import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
     path: '',
     component: TabsPage,
+    canActivate: [GrantAccessToTabsGuard],
     children: [
       {
         path: 'tab1',

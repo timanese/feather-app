@@ -45,21 +45,10 @@ export class AddPostPage implements OnInit {
 
   formValidation() {
 
-    if (!this.post.title && !this.post.details)
-    {
-      this.showToast('Please enter a Title and detail!');
-      return false;
-    }
      if (!this.post.title){
        this.showToast('Please enter Title!');
        return false;
      }
-
-     if (!this.post.details) {
-       this.showToast('Please enter detail!');
-       return false;
-     }
-
      return true;
    }
 

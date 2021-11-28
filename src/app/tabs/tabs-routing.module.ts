@@ -15,7 +15,16 @@ const routes: Routes = [
       },
       {
         path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        children : [
+          {
+            path:'',
+            loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule),
+          },
+          {
+            path: 'post-details',
+            loadChildren: () => import('../post-details/post-details.module').then( m => m.PostDetailsPageModule)
+          }
+        ]
       },
       {
         path: 'tab3',

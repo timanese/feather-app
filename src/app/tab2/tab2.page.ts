@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/dot-notation */
 import { PhotoService } from './../services/photo.service';
 import { Component } from '@angular/core';
 import { LoadingController, ToastController } from '@ionic/angular';
@@ -24,6 +25,7 @@ export class Tab2Page {
     // console.log("get posts");
 
     // show loader
+    // eslint-disable-next-line prefer-const
     let loader = await this.loadingCtrl.create({
       message: 'Please wait ...'
     });

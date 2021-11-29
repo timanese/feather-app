@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { AddPostPageRoutingModule } from './add-post-routing.module';
 
 import { AddPostPage } from './add-post.page';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AddPostPageRoutingModule
+    AddPostPageRoutingModule,
+    QuillModule.forRoot()
   ],
   declarations: [AddPostPage]
 })

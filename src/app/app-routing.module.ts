@@ -24,7 +24,21 @@ const routes: Routes = [
   {
     path: 'add-post',
     loadChildren: () => import('./add-post/add-post.module').then( m => m.AddPostPageModule)
+  },
+  {
+    path: 'delete',
+    loadChildren: () => import('./delete/delete.module').then( m => m.DeletePageModule)
+  },
+  {
+    path: 'edit-page/:id',
+    loadChildren: () => import('./edit-page/edit-page.module').then( m => m.EditPagePageModule)
+  },
+  {
+    path: 'entry-content',
+    loadChildren: () => import('./entry-content/entry-content.module').then( m => m.EntryContentPageModule)
   }
+
+
 ];
 
 // const routes: Routes = [

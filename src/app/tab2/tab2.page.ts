@@ -29,7 +29,7 @@ export class Tab2Page {
     let loader = await this.loadingCtrl.create({
       message: 'Please wait ...'
     });
-    loader.present();
+    (await loader).present();
 
     try {
       this.firestore
@@ -39,13 +39,30 @@ export class Tab2Page {
           this.posts = data.map(e => ({
               id: e.payload.doc.id,
               title: e.payload.doc.data()['title'],
-              details: e.payload.doc.data()['details']
+              details: e.payload.doc.data()['details'],
+              // content: e.payload.doc.data()['content']
             }));
 
           // dismiss loader
           loader.dismiss();
         });
     } catch (e) {
+      this.showToast(e);
+    }
+  }
+
+  async deletePost(id: string) {
+    let loader = await this.loadingCtrl.create({
+      message: 'Please wait ...'
+    });
+
+    (await loader).present();
+
+    try {
+
+    await this.firestore.doc('posts/' + id).delete();
+    (await loader).dismiss();
+    } catch(e) {
       this.showToast(e);
     }
   }

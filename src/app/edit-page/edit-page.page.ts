@@ -7,11 +7,11 @@ import { Post } from '../models/post.model';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-post-details',
-  templateUrl: './post-details.page.html',
-  styleUrls: ['./post-details.page.scss'],
+  selector: 'app-edit-page',
+  templateUrl: './edit-page.page.html',
+  styleUrls: ['./edit-page.page.scss'],
 })
-export class PostDetailsPage implements OnInit {
+export class EditPagePage implements OnInit {
   post = {} as Post;
   private id: any;
   editorForm: FormGroup;
@@ -91,4 +91,3 @@ export class PostDetailsPage implements OnInit {
     }).then(toastData => toastData.present());
   }
 }
-

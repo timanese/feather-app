@@ -21,7 +21,7 @@ const routes: Routes = [
             loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule),
           },
           {
-            path: 'post-details/:postID',
+            path: 'post-details/:id',
             loadChildren: () => import('../post-details/post-details.module').then( m => m.PostDetailsPageModule)
           }
         ]

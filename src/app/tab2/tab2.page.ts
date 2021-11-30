@@ -3,6 +3,7 @@ import { PhotoService } from './../services/photo.service';
 import { Component } from '@angular/core';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import * as firebase from 'firebase/compat';
 
 @Component({
   selector: 'app-tab2',
@@ -16,10 +17,12 @@ export class Tab2Page {
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
     private firestore: AngularFirestore) {}
+  // eslint-disable-next-line @typescript-eslint/member-ordering
 
   ionViewWillEnter() {
     this.getPosts();
   }
+
 
   async getPosts() {
     // console.log("get posts");
@@ -78,6 +81,5 @@ export class Tab2Page {
   addPhotoToGallery() {
     this.photoService.addNewToGallery();
   }
-
 
 }

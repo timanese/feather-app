@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
+import * as firebase from 'firebase/compat';
 import { Post } from '../models/post.model';
 
 @Injectable({
@@ -10,6 +11,7 @@ import { Post } from '../models/post.model';
 })
 export class AddPostService {
   editorForm: FormGroup;
+
   constructor(
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
